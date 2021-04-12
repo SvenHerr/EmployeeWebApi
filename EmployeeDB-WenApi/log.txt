@@ -1,0 +1,8 @@
+
+Log Entry : 22:22:11 Montag, 12. April 2021
+  :
+Class : EmployeeAccess
+Method : GetAllEmployees
+  :System.Exception: Test
+   at EmployeeDB_WenApi.EmployeeAccess.GetAllEmployees() in C:\Users\Sven\source\repos\EmployeeDB-WenApi\EmployeeDB-WenApi\DbAccess\EmployeeAccess.cs:line 44
+-------------------------------
