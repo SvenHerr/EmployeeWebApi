@@ -1,17 +1,16 @@
 using EmployeeDB_WenApi;
 using EmployeeDB_WenApi.Controllers;
-using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace NUnitTestProject
 {
     public class Tests
     {
-        private Mock<ILogger> _mockLogger = new Mock<ILogger>();
-        private Mock<EmployeeDB_WenApi.ILogik> _logik = new Mock<EmployeeDB_WenApi.ILogik>();
+        private Mock<ILogik> _logik = new Mock<ILogik>();
 
         //[SetUp]
         //public void Setup()
@@ -68,6 +67,37 @@ namespace NUnitTestProject
             // assert    
             _logik
                 .Verify(v => v.AddNewEmployee(employee), Times.Once);
+        }
+
+        [Test]
+        public void AddNewEmployeeDBTest()
+        {
+            // arrange
+            var mockDB = new Mock<IEmployeeAccess>();
+
+
+            var employee = new Employee()
+            {
+                FirstName = "Sven",
+                LastName = "Herrmann",
+                BirthDate = new DateTime(1992, 1, 12),
+                IsActive = true
+            };
+
+
+            mockDB.Setup(x => x.AddEmployeeToDb(employee)).Returns(true);
+        }
+        [Test]
+        public void GetAllEmployeesDBTest()
+        {
+            // arrange
+            var mockDB = new Mock<IEmployeeAccess>();
+
+
+            var result = new List<Employee>();
+
+
+            mockDB.Setup(x => x.GetAllEmployees()).ReturnsAsync(result);
         }
 
         [Test]
