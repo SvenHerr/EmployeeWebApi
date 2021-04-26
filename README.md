@@ -14,3 +14,5 @@ Einen Controller mit folgenden Routen anlegen:
 
 Bitte Dependency Injection verwenden 
 Für alle Routen müssen Unit-Tests existieren. 
+
+If you have any suggestion or question please contact me here: info@herrmannsven.de
