@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace EmployeeDB_WenApi.Controllers
 {
@@ -54,6 +55,19 @@ namespace EmployeeDB_WenApi.Controllers
                 throw ex;
             }
         }
+
+        //[HttpGet("GetEmployeesJson")]
+        //public async Task<string> GetAllEmployeesJson()
+        //{
+        //    try
+        //    {
+        //        return JsonConvert.SerializeObject(await _logik.GetAllEmplyees());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         [HttpGet("{birthDate}")]
         public async Task<List<Employee>> GetAllEmployeesOlderThan(DateTime birthDate)
